@@ -3,16 +3,10 @@ import api from '../api'
 
 const Users = () => {
     const [users, setUsers] = useState(api.users.fetchAll())
-    /*let length = users.length*/
-    /*console.log(users)*/
     const handleDelete = (userId) => {
-        /*console.log(userId)*/
         setUsers(prevState=>prevState.filter((user) => {
-            /*console.log(user)*/
-           /*console.log(userId)*/
             return user._id!==userId
         }))
-        /*renderPhrase(users.length)*/
     }
     const renderPhrase = (number) => {
         let text = ''
@@ -35,7 +29,6 @@ const Users = () => {
                     <td key = {user.name}>{user.name}</td>
                     <td key = {user._id + 'qua'}>{
                         user.qualities.map(element => {
-                            /*console.log(element.name)*/
                             return <span key={element._id} className={'badge bg-' + element.color + ' m-1'}>{element.name}</span>
                         })
                         }</td>
